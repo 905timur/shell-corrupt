@@ -1,8 +1,10 @@
 ## Secure File Corruption Script
 
-This script implements a secure file corruption method by first encrypting the target files using AES encryption and then overwriting them with pseudo-random data. This ensures that even with the overwritten data, the original file content remains protected and unreadable without the decryption key.
+Shell-Corrupt is an improvement on File-Corruptor script (v0.4-0.5)
 
-**Key Functions:**
+**Note:** This script is for educational/research purposes only. Using it can irrevocably destroy files. I accept no liability!
+
+**Features:**
 
 * **`GenerateRandomData`:** Generates a specified amount of random data using a cryptographically secure random number generator (RNG).
 * **`EncryptFile`:** Encrypts the file content using AES encryption with a 256-bit key (128-bit in this case) and an initialization vector (IV). 
@@ -20,8 +22,6 @@ This script implements a secure file corruption method by first encrypting the t
 * `$fileSize`: Target size for each corrupted file (default: 1MB).
 * `$chunkSize`: Size of each data chunk written to the file (default: 1KB).
 
-**Considerations:**
-
 * **Security:**
     * **Encryption Key:** The encryption key must be securely stored and protected.
     * **IV:** Use a random IV for each file for enhanced security. Consider storing the IV securely alongside the key.
@@ -29,10 +29,11 @@ This script implements a secure file corruption method by first encrypting the t
     * Sequential processing can be slow for large numbers of files. Consider multi-threading for improved performance.
 * **File System:** Be mindful of the `$fileSize` parameter. Overwriting with data exceeding the original file size may cause issues.
 
-**Potential Enhancements:**
+**Notes for future:**
 
 * **Dynamic IV Generation:** Implement random IV generation for each file.
 * **Multi-threading:** Utilize multi-threading for concurrent file processing.
-* **Secure Key Management:** Integrate with a secure key management service (e.g., Azure Key Vault).
+* **Secure Key Management:** Integrate with a secure key management service.
+* **GUI:** Develop user friendly GUI.
 
-**Note:** This script is for educational and demonstrative purposes only. Using this script for malicious activities is illegal and unethical.
+
